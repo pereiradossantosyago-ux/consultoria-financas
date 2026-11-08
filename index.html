@@ -1022,11 +1022,16 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
               <div class="f"><label for="wz-email">E-mail <span class="opt">para receber o link da chamada</span></label><input id="wz-email" type="email" autocomplete="email"><small class="err"></small></div>
               <div class="f" id="wz-emp-wrap" hidden><label for="wz-emp">Empresa <span class="opt">opcional</span></label><input id="wz-emp" type="text" autocomplete="organization"></div>
             </div>
-            <p class="hint">Seus dados são usados só para este contato, conforme a LGPD.</p>
+            <p class="hint">Ao agendar, você recebe o convite por e-mail e concorda com o uso dos dados só para este contato, conforme a <a href="#privacidade" style="color:var(--accent-hi)">Política de Privacidade</a>.</p>
           </div>
 
           <div class="wz-pane" data-step="4" hidden>
-            <div class="sent"><svg class="i" style="width:28px;height:28px;color:var(--accent-hi)"><use href="#ok"/></svg>
+            <div class="sent" id="wz-ok" hidden><svg class="i" style="width:28px;height:28px;color:var(--accent-hi)"><use href="#ok"/></svg>
+              <h3>Conversa marcada!</h3>
+              <p class="muted" id="wz-ok-txt"></p>
+              <div class="row2"><a class="btn btn-teal" id="wz-meet" href="#" target="_blank" rel="noopener">Abrir link do Meet</a><a class="btn btn-line" data-wa="Olá Yago! Acabei de agendar uma conversa pelo seu site." href="#"><svg class="i"><use href="#wa"/></svg>Falar no WhatsApp</a></div>
+            </div>
+            <div class="sent" id="wz-fb"><svg class="i" style="width:28px;height:28px;color:var(--accent-hi)"><use href="#ok"/></svg>
               <h3>Pedido pronto</h3>
               <p class="muted">Envie pelo WhatsApp para garantir o horário. Respondo com a confirmação e o link da chamada.</p>
               <div class="row2"><a class="btn btn-teal" id="wz-send" href="#" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Enviar pelo WhatsApp</a><button type="button" class="btn btn-line" id="wz-edit">Alterar dados</button></div>
@@ -1077,10 +1082,38 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
 
 
 
+<main id="view-privacidade" class="page tabview" hidden>
+  <div class="glow"></div>
+  <div class="wrap">
+    <article class="article">
+      <span class="tag" style="justify-self:start">LGPD</span>
+      <h1>Política de Privacidade</h1>
+      <p class="meta">Atualizada em novembro de 2026</p>
+      <p>Esta página explica quais dados o site Consultoria PJ &amp; Finanças coleta, por quê e quais são os seus direitos, conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).</p>
+      <h2>Quem é o responsável</h2>
+      <p>Yago Pereira, responsável pelo site e pelos serviços de consultoria. Contato: WhatsApp (11) 97786-4317 ou pereiradossantosyago@gmail.com.</p>
+      <h2>Dados que você informa</h2>
+      <p>Ao agendar uma conversa, você informa nome, WhatsApp, e-mail, perfil (pessoa, empresa ou incorporadora), nome da empresa se quiser, assunto, um contexto opcional e a data escolhida. Esses dados servem só para marcar a conversa, enviar o convite e preparar o atendimento. A base legal é a realização de procedimentos preliminares a um contrato, a seu pedido (art. 7º, V).</p>
+      <h2>Dados de navegação</h2>
+      <p>Para saber quantas pessoas visitam o site e quais páginas e ferramentas são mais úteis, registramos de forma anônima: página vista, site de origem, tipo de dispositivo e um código aleatório que vale só para aquela visita. <b>Não usamos cookies</b>, não guardamos endereço IP e não identificamos quem visitou. As respostas do diagnóstico e dos simuladores ficam no seu navegador; registramos apenas que foram usados e, no diagnóstico, a nota final, sem identificação.</p>
+      <h2>Onde os dados ficam</h2>
+      <p>Os agendamentos ficam numa planilha e no Google Agenda do responsável, em conta Google protegida por verificação em duas etapas. O Google atua como provedor desses serviços e pode armazenar dados fora do Brasil, com as garantias previstas no art. 33 da LGPD. Os dados não são vendidos nem compartilhados com terceiros para outras finalidades.</p>
+      <h2>Por quanto tempo</h2>
+      <p>Os dados de contato são mantidos enquanto houver conversa ou relação de trabalho e por até 2 anos depois do último contato, ou até você pedir a exclusão, o que vier primeiro. Os dados de navegação são usados apenas em números agregados.</p>
+      <h2>Seus direitos</h2>
+      <p>Você pode pedir a qualquer momento: confirmação de que tratamos seus dados, acesso, correção, exclusão, informação sobre compartilhamento e revogação do consentimento (art. 18). Basta enviar o pedido pelo WhatsApp ou e-mail acima. A resposta é dada em até 15 dias.</p>
+      <h2>Clientes</h2>
+      <p>Quando a conversa vira um trabalho, os dados financeiros recebidos passam a seguir um termo de confidencialidade e tratamento de dados assinado entre as partes.</p>
+      <div class="article-cta"><a class="btn btn-line" href="#inicio">Voltar ao início</a></div>
+    </article>
+  </div>
+</main>
+
 <footer>
   <div class="wrap foot">
     <span>© 2026 Yago Pereira · Finanças &amp; FP&amp;A</span>
     <span class="copy">WhatsApp: <span class="num" id="wa-num">(11) 97786-4317</span><button type="button" id="copy-btn">Copiar</button></span>
+    <a href="#privacidade" style="color:var(--muted)">Política de Privacidade</a>
     <div class="socials" id="socials"></div>
   </div>
 </footer>
@@ -1099,6 +1132,23 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
   document.querySelectorAll('[data-wa]').forEach(a=>{a.href=waUrl(a.dataset.wa);a.target='_blank';a.rel='noopener'});
   document.getElementById('sim-cta').target='_blank';
 
+  // ===== CONFIG: endereço do programa de agenda e base de dados (Google Apps Script) =====
+  const API='__API_URL__';
+  const HAS_API=/^https:\/\/script\.google\.com\//.test(API);
+  // ===== registro anônimo de eventos: sem cookies, sem IP, código aleatório por visita =====
+  const SESSION=Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4);
+  const DEVICE=/Mobi|Android|iPhone/i.test(navigator.userAgent)?'celular':(/iPad|Tablet/i.test(navigator.userAgent)?'tablet':'computador');
+  const ORIGEM=(()=>{try{const q=new URLSearchParams(location.search);if(q.get('utm_source'))return q.get('utm_source').slice(0,40);
+    if(document.referrer){const h=new URL(document.referrer).hostname.replace(/^www\./,'');if(h&&h!==location.hostname)return h}}catch(e){}return 'direto'})();
+  let curView='inicio';
+  function track(name,detail,page){
+    if(!HAS_API)return;
+    try{fetch(API,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify({type:'event',name,page:page||curView,detail:detail==null?'':String(detail),session:SESSION,ref:ORIGEM,device:DEVICE})})}catch(e){}
+  }
+  document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[href^="https://wa.me"]');if(!a)return;
+    if(/Modelo de Or/.test(decodeURIComponent(a.href)))track('material');else track('whatsapp',(a.textContent||'').trim().slice(0,40))});
+
   const terms=['VPL','TIR','Fluxo de caixa','Orçado x Realizado','DRE gerencial','Viabilidade','Exposição de caixa','Power BI','VBA','SQL','Orçamento anual','Reserva de emergência','Consolidação de SPEs','Payback'];
   document.getElementById('track').innerHTML=[...terms,...terms].map(t=>`<span>${t}</span>`).join('');
 
@@ -1110,7 +1160,7 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
     try{navigator.clipboard.writeText('+55 11 97786-4317').then(done,sel)}catch(e){sel()}
   });
 
-  const VIEWS=['inicio','incorporadoras','empresas','pessoal','diagnostico','ferramentas','contato'];
+  const VIEWS=['inicio','incorporadoras','empresas','pessoal','diagnostico','ferramentas','contato','privacidade'];
   const ALIAS={conteudos:['inicio','conteudos'],sobre:['inicio','sobre'],agendar:['contato','agendar'],simulador:['ferramentas',null],servicos:['inicio','servicos'],duvidas:['contato','duvidas'],casos:['inicio',null]};
   function route(){
     const h=location.hash.replace('#','');
@@ -1121,6 +1171,7 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
     if(post)renderArticle(post);
     const cur=v==='artigo'?'inicio':v==='diagnostico'?'pessoal':v;
     document.querySelectorAll('#tabsnav a').forEach(a=>{if(a.dataset.t===cur){a.setAttribute('aria-current','page');a.scrollIntoView({block:'nearest',inline:'nearest'})}else a.removeAttribute('aria-current')});
+    const pg=v==='artigo'?h:v; if(pg!==curView||!track.first){curView=pg;track.first=1;track('page_view')}
     const el=anchor&&document.getElementById(anchor);
     if(el)requestAnimationFrame(()=>el.scrollIntoView());else window.scrollTo(0,0);
   }
@@ -1243,6 +1294,7 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
   }
   ['e-fix','e-pre','e-cv','e-qtd'].forEach(id=>$(id).addEventListener('input',pe));pe();
 
+  const usedSim={};document.querySelectorAll('#view-ferramentas .sim').forEach(pn=>pn.addEventListener('change',()=>{if(!usedSim[pn.id]){usedSim[pn.id]=1;track('simulador',pn.id.replace('p-',''))}}));
   // 4) reserva
   function sim(){
     const custo=+$('s-custo').value, meses=+$('s-meses').value, tem=+$('s-tem').value, ap=+$('s-aporte').value;
@@ -1308,9 +1360,9 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
   }
 
   // ===== CONFIG: ajuste aqui seus horários e redes =====
-  const AGENDA={
-    uteis:['07:30','12:00','12:30'],            // segunda a sexta
-    sabado:['09:00','10:00','11:00','14:00','15:00','16:00'],
+  const AGENDA={                                 // usado só se o Google Agenda não responder
+    uteis:['12:00','12:30'],                     // segunda a sexta
+    sabado:['09:00','10:00','11:00','14:00','15:00'],
     domingo:[]                                   // sem atendimento
   };
   const REDES={linkedin:'https://www.linkedin.com/in/yago-pereira-90505627b',instagram:''};
@@ -1348,6 +1400,7 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
     $('qz-tips').innerHTML=weak.length?'<small class="muted">Pontos de atenção</small>'+weak.map(o=>`<div><b>${o.x.tip[0]}</b>${o.x.tip[1]}</div>`).join(''):'';
     $('qz-cta').href=waUrl(`Olá Yago! Fiz o diagnóstico de saúde financeira no seu site e tirei ${sc}/100 (${band[0]}).`+(weak.length?` Pontos de atenção: ${weak.map(o=>o.x.tip[0]).join(', ')}.`:'')+' Quero ajuda para melhorar.');
     $('qz-result').hidden=false;$('qz-hint').hidden=true;
+    if(quiz.dataset.sent!==String(sc)){quiz.dataset.sent=String(sc);track('diagnostico',sc)}
   });
 
   // ===== helpers de formulário =====
@@ -1367,12 +1420,15 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
   const DS=['dom','seg','ter','qua','qui','sex','sáb'], DL=['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
   const WZ={step:1,perfil:'',assunto:'',dia:null,hora:'',fmt:''};
   const pad2=n=>String(n).padStart(2,'0');
-  const slotsOf=d=>{const w=d.getDay();return w===0?AGENDA.domingo:w===6?AGENDA.sabado:AGENDA.uteis};
+  const isoD=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  let SLOTMAP=null, LIVE=false;
+  const slotsOf=d=>{if(SLOTMAP)return SLOTMAP[isoD(d)]||[];const w=d.getDay();return w===0?AGENDA.domingo:w===6?AGENDA.sabado:AGENDA.uteis};
   function radios(box,items,cur,onPick){
     box.innerHTML=items.map(v=>`<button type="button" role="radio" aria-checked="${v===cur}" data-v="${v}">${v}</button>`).join('');
     box.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>onPick(b.dataset.v)));
   }
   function setPerfil(v,assunto){
+    if(!WZ.perfil)track('agendamento_inicio',v);
     WZ.perfil=v;WZ.assunto=assunto&&ASSUNTOS[v].includes(assunto)?assunto:(ASSUNTOS[v].includes(WZ.assunto)?WZ.assunto:'');
     $('wz-perfil').querySelectorAll('button').forEach(b=>b.setAttribute('aria-checked',b.dataset.v===v));
     $('wz-ass-q').hidden=false;$('wz-desc-q').hidden=false;
@@ -1382,14 +1438,28 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
   }
   $('wz-perfil').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>setPerfil(b.dataset.v)));
   // dias disponíveis
-  const days=[];for(let k=1;days.length<12&&k<45;k++){const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+k);if(slotsOf(d).length)days.push(d)}
+  const days=[];
+  function buildDays(){days.length=0;
+    if(SLOTMAP){Object.keys(SLOTMAP).sort().slice(0,14).forEach(k=>days.push(new Date(k+'T12:00:00')))}
+    else for(let k=1;days.length<12&&k<45;k++){const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+k);if(slotsOf(d).length)days.push(d)}
+    if(WZ.dia&&!days.some(d=>+d===+WZ.dia)){WZ.dia=null;WZ.hora=''}
+    if(WZ.dia&&!slotsOf(WZ.dia).includes(WZ.hora))WZ.hora='';
+  }
+  function loadSlots(){
+    if(!HAS_API){buildDays();return Promise.resolve()}
+    $('wz-days').innerHTML='<span class="hint">Carregando horários livres da agenda…</span>';
+    return fetch(API+'?action=slots').then(r=>r.json()).then(j=>{if(!j.ok)throw 0;SLOTMAP={};j.slots.forEach(x=>SLOTMAP[x.d]=x.t);LIVE=true})
+      .catch(()=>{SLOTMAP=null;LIVE=false}).then(()=>{buildDays();drawDays();drawHoras();summary();
+        if(LIVE&&!days.length)$('wz-days').innerHTML='<span class="hint">Sem horários livres nas próximas semanas. Chame no WhatsApp.</span>'});
+  }
+  buildDays();
   function drawDays(){
     $('wz-days').innerHTML=days.map((d,i)=>`<button type="button" role="radio" aria-checked="${WZ.dia&&+WZ.dia===+d}" data-i="${i}"><small>${DS[d.getDay()]}</small><b>${pad2(d.getDate())}</b><span>${['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][d.getMonth()]}</span></button>`).join('');
     $('wz-days').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{WZ.dia=days[+b.dataset.i];if(!slotsOf(WZ.dia).includes(WZ.hora))WZ.hora='';drawDays();drawHoras();msg('');summary()}));
   }
-  function drawHoras(){if(!WZ.dia)return;radios($('wz-hora'),slotsOf(WZ.dia),WZ.hora,h=>{WZ.hora=h;drawHoras();msg('');summary()})}
+  function drawHoras(){if(!WZ.dia){$('wz-hora').innerHTML='<span class="hint">Escolha um dia primeiro.</span>';return}radios($('wz-hora'),slotsOf(WZ.dia),WZ.hora,h=>{WZ.hora=h;drawHoras();msg('');summary()})}
   function drawFmt(){radios($('wz-fmt'),FMTS,WZ.fmt,f=>{WZ.fmt=f;drawFmt();msg('');summary()})}
-  drawDays();drawFmt();
+  drawDays();drawFmt();loadSlots();
   maskTel($('wz-wpp'));
   const msg=t=>{$('wz-msg').textContent=t};
   const dataTxt=()=>WZ.dia?`${DL[WZ.dia.getDay()]}, ${pad2(WZ.dia.getDate())}/${pad2(WZ.dia.getMonth()+1)}${WZ.hora?' às '+WZ.hora:''}`:'';
@@ -1403,7 +1473,7 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
     document.querySelectorAll('#wz .wz-pane').forEach(p=>p.hidden=+p.dataset.step!==n);
     $('wz-steps').querySelectorAll('li').forEach(li=>{const s=+li.dataset.s;li.classList.toggle('on',s===Math.min(n,3));li.classList.toggle('done',s<n)});
     $('wz-back').hidden=n===1||n===4;$('wz-nav').hidden=n===4;
-    $('wz-next').textContent=n===3?'Concluir pedido':'Continuar';
+    $('wz-next').textContent=n===3?(HAS_API&&LIVE?'Confirmar agendamento':'Concluir pedido'):'Continuar';
     msg('');
   }
   function check(n){
@@ -1424,7 +1494,21 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
     const linhas=['*Pedido de conversa inicial*',`Nome: ${$('wz-nome').value.trim()}`,`WhatsApp: ${$('wz-wpp').value}`,`E-mail: ${$('wz-email').value.trim()}`,
       `Perfil: ${WZ.perfil}${$('wz-emp').value.trim()&&WZ.perfil!=='Pessoa física'?' · '+$('wz-emp').value.trim():''}`,`Assunto: ${WZ.assunto}`,
       $('wz-desc').value.trim()?`Contexto: ${$('wz-desc').value.trim()}`:'',`Quando: ${dataTxt()}`,`Formato: ${WZ.fmt}`].filter(Boolean);
-    $('wz-send').href=waUrl(linhas.join('\n'));go(4);
+    $('wz-send').href=waUrl(linhas.join('\n'));
+    const fallback=()=>{$('wz-ok').hidden=true;$('wz-fb').hidden=false;go(4)};
+    if(!HAS_API||!LIVE){fallback();return}
+    const bt=$('wz-next');bt.disabled=true;bt.textContent='Agendando…';
+    const payload={type:'book',nome:$('wz-nome').value.trim(),whatsapp:$('wz-wpp').value,email:$('wz-email').value.trim(),perfil:WZ.perfil,
+      empresa:WZ.perfil!=='Pessoa física'?$('wz-emp').value.trim():'',assunto:WZ.assunto,contexto:$('wz-desc').value.trim(),
+      data:isoD(WZ.dia),hora:WZ.hora,formato:WZ.fmt,origem:ORIGEM,session:SESSION,device:DEVICE};
+    fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+      .then(r=>r.json()).then(j=>{
+        if(j.ok){$('wz-ok-txt').textContent=`Combinado para ${dataTxt()}. O convite com o link da chamada foi enviado para ${payload.email}.`;
+          if(j.meet){$('wz-meet').href=j.meet;$('wz-meet').hidden=false}else $('wz-meet').hidden=true;
+          $('wz-ok').hidden=false;$('wz-fb').hidden=true;go(4)}
+        else if(j.taken){WZ.hora='';go(2);msg(j.error);loadSlots()}
+        else{msg(j.error||'Não foi possível agendar agora.');fallback()}
+      }).catch(fallback).finally(()=>{bt.disabled=false;if(WZ.step===3)bt.textContent='Concluir pedido'});
   });
   $('wz-back').addEventListener('click',()=>go(Math.max(1,WZ.step-1)));
   $('wz-edit').addEventListener('click',()=>go(3));
