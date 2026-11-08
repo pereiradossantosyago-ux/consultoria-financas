@@ -1133,7 +1133,7 @@ th:first-child,td:first-child{text-align:left;font-family:var(--body)}
   document.getElementById('sim-cta').target='_blank';
 
   // ===== CONFIG: endereço do programa de agenda e base de dados (Google Apps Script) =====
-  const API='__API_URL__';
+  const API='https://script.google.com/macros/s/AKfycbyEYM7FnOmfUHPIyt64SUn79jcTg1D_IK0quKsxpusnCX23xNDsdl9FJS2VLtT4_WPDFg/exec';
   const HAS_API=/^https:\/\/script\.google\.com\//.test(API);
   // ===== registro anônimo de eventos: sem cookies, sem IP, código aleatório por visita =====
   const SESSION=Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4);
