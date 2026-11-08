@@ -46,7 +46,12 @@ function setup() {
   const eventos = obterAba_(ss, ABA_EVENTOS, CAB_EVENTOS);
   contatos.setColumnWidths(1, CAB_CONTATOS.length, 140);
   eventos.setColumnWidths(1, CAB_EVENTOS.length, 150);
+  // fórmulas escritas no padrão en_US e convertidas de volta para o idioma da planilha
+  const local = ss.getSpreadsheetLocale();
+  ss.setSpreadsheetLocale('en_US');
   montarPainel_(ss);
+  SpreadsheetApp.flush();
+  ss.setSpreadsheetLocale(local || 'pt_BR');
   const padrao = ss.getSheetByName('Sheet1') || ss.getSheetByName('Página1');
   if (padrao && ss.getSheets().length > 1) ss.deleteSheet(padrao);
   ss.setActiveSheet(ss.getSheetByName(ABA_PAINEL));
